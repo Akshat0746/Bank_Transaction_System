@@ -1,4 +1,4 @@
-const mongooe=require("mongoose")
+const mongoose=require("mongoose")
 const bcrypt=require("bcryptjs")
 
 const userSchema = new mongoose.Schema(
@@ -30,12 +30,12 @@ const userSchema = new mongoose.Schema(
 userSchema.pre("save",async function(next){
 
     if(!this.isModified("pasword")) {
-        return next()
+        return 
     }
     const hash=await bcrypt.hash(this.password,10)
     this.password=hash
 
-    return next()
+    return 
 })
 
 userSchema.methods.comparePassword=async function(pasword) {

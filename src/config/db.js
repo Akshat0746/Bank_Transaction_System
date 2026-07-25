@@ -1,8 +1,8 @@
 const mongoose=require("mongoose")
 
 
-function connectToDB() {
-    mongoose.connect(process.env.MONGO_URI)
+async function connectToDB() {
+    await mongoose.connect(process.env.MONGO_URI)
     .then(()=>{
         console.log("Server is connected to DB")
     })
